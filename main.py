@@ -20,4 +20,31 @@ def random_fact():
     fact = random.choice(facts)
     return f"<h1>{fact}</h1>"
 
+@app.route("/secret")
+def secret():
+    resultado = random.choice(["Cara", "Cruz"])
+    return f'''
+    <html>
+    <head>
+        <style>
+            body {{
+                background-color: #fff9e6;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 100px;
+            }}
+            h1 {{
+                color: #cc8b00;
+                font-size: 50px;
+            }}
+        </style>
+    </head>
+    <body>
+        <h1>🪙 {resultado} 🪙</h1>
+        <p>Recarga la página para lanzar de nuevo</p>
+        <a href="/">Volver al inicio</a>
+    </body>
+    </html>
+    '''
+
 app.run(debug=True)
